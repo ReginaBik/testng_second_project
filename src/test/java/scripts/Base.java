@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
+import page.UnitedAirlinesMainPage;
 import utilities.Driver;
 
 import java.util.concurrent.TimeUnit;
@@ -16,7 +17,7 @@ public class Base {
     WebDriverWait explicitWait;
     Wait fluentWait;
     SoftAssert softAssert;
-    UnitedAirlinesTest unitedAirlinesTest;
+    UnitedAirlinesMainPage unitedAirlinesMainPage;
 
 
 
@@ -27,8 +28,7 @@ public class Base {
         fluentWait = new FluentWait(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(2, TimeUnit.SECONDS).ignoring(Exception.class);
         softAssert = new SoftAssert();
 
-        unitedAirlinesTest = new UnitedAirlinesTest();
-
+        unitedAirlinesMainPage = new UnitedAirlinesMainPage(driver);
     }
 
     @AfterMethod
